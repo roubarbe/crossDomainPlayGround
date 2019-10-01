@@ -3,6 +3,6 @@
 
 ## Different exploits
  ### /exploits/alert/[message]
- 	This splurts an empty page with a script tag, set to show an alert, with the specific message in the url.
+This splurts an empty page with a script tag, set to show an alert, with the specific message in the url.
  ### /exploits/image/[url]
- 	This splurts the provided image from another domain, make sure the URL is "encoded". You can use a service like: https://www.urlencoder.org/
+This splurts the provided image from another domain, make sure the URL is "encoded". You can use a service like: https://www.urlencoder.org/
