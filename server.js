@@ -85,20 +85,24 @@ app.get('/exploits/css/:file', function(req,res){
 });
 
 
-
+/**
+ * This will execute a data gathering script. Must specify a domain to run this on, or else you'll get CORS errors up the wazoo
+ * @param domain {string} domain to run script on
+ */
 app.get('/exploits/dataGather/:domain', function(req,res){
 	'use strict';
 
 	let page = "";
 
-	//page = "<script type='text/javascript'>document.domain = '"+req.params.domain+"';console.log(window.frames[0])</script>";
 	page = 	htmlBuildingBlocks.scriptOpen+
 			htmlBuildingBlocks.domainChange(req.params.domain)+
-			htmlBuildingBlocks.consoleLog("window.frames[0]")+
+			htmlBuildingBlocks.consoleLog("window.top")+
 			htmlBuildingBlocks.scriptClose;
 
 	res.send(page);
 });
+
+
 
 // Serving a single example page if no specific URL present
 app.use(express.static('./client'));
