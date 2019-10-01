@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CDPG</title>
+		<script src="scripts.js"></script>
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<h1>Button scripts</h1>
+		
+		<button onclick="clickTest(this.innerHTML)">Hello</button>
+		
+		<form onsubmit="document.body.appendChild(splurtH1(document.querySelector('#h1Text').value));return false">
+			<input type="text" id="h1Text">
+			<input type="submit" value="Add">
+		</form>
+	</body>
+</html>
