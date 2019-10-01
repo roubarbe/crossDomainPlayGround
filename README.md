@@ -1,5 +1,5 @@
 # crossDomainPlayGround
- WebPage with different scripts to execute, to integrate as an iFrame in systems you wish to test.
+ WebPage with different scripts to execute, could be used in iFrames, in redirects, etc.
 
 ## Different exploits
  ### /exploits/alert/[message]
