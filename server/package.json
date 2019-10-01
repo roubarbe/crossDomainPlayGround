@@ -1,0 +1,20 @@
+{
+  "name": "cdpg",
+  "version": "0.0.1",
+  "description": "CrossDomainPlayGround",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roubarbe/crossDomainPlayGround.git"
+  },
+  "author": "Xavier Provost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roubarbe/crossDomainPlayGround/issues"
+  },
+  "homepage": "https://github.com/roubarbe/crossDomainPlayGround#readme"
+}
