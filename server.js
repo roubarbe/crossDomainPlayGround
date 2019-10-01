@@ -7,13 +7,40 @@ console.log("HTTP server initialization...");
 var app = express();
 
 
-/*app.get('/exploits/:type', function(req,res){
+app.get('/exploits/alert/:msg', function(req,res){
+	'use strict';
+    let alertMsg;
+	
+	if(req.params.msg == "" || !req.params.msg){
+		alertMsg = "Default message";
+	}
+	else{
+		alertMsg = req.params.msg;
+	}
+	
+    //let page = "<div onload='alert(\""+alertMsg+"\");'>test</div>";
+	
+	let page = "<script type='text/javascript'>alert('"+alertMsg+"')</script>";
+	
+	res.send(page);
+});
+
+app.get('/exploits/image/:url', function(req,res){
 	'use strict';
     
-    if(req.params.type == "image"){
-		
+	let imageUrl;
+	
+	if(req.params.url == "" || !req.params.url){
+		imageUrl = "https%3A%2F%2Fi.ytimg.com%2Fvi%2Fej6gpF4TDnA%2Fmaxresdefault.jpg";
 	}
-});*/
+	else{
+		imageUrl = req.params.url;
+	}
+	
+    let page = "<img src='"+imageUrl+"'>";
+	
+	res.send(page);
+});
 
 
 
