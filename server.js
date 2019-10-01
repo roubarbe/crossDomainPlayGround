@@ -6,7 +6,14 @@ const express = require('express');
 console.log("HTTP server initialization...");
 var app = express();
 
-
+//Just to ease any HTML-in-a-string buildings
+let htmlBuildingBlocks = {
+	scriptOpen: "<script type='text/javascript'>",
+	scriptClose: "</script>",
+	alertBox: function(msg){
+		return "alert('"+msg+"');";
+	}
+}
 
 /**
  * This will generate an empty page with a script tag, which contains an alert with the provided message
@@ -24,7 +31,9 @@ app.get('/exploits/alert/:msg', function(req,res){
 		alertMsg = req.params.msg;
 	}
 	
-	let page = "<script type='text/javascript'>alert('"+alertMsg+"')</script>";
+	let page = 	htmlBuildingBlocks.scriptOpen+
+				htmlBuildingBlocks.alertBox(alertMsg)+
+				htmlBuildingBlocks.scriptClose;
 	
 	res.send(page);
 });
@@ -76,7 +85,7 @@ app.get('/exploits/dataGather', function(req,res){
 
 	let page = "";
 
-	page = "<script type='text/javascript'>document.domain = 'localhost';console.log(window.top)</script>";
+	page = "<script type='text/javascript'>document.domain = 'localhost';console.log(window.frames[0])</script>";
 
 	res.send(page);
 });
