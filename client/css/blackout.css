@@ -1,0 +1,8 @@
+/*  blackout.css
+    Will make everything black on black.
+*/
+
+*{
+    color: black !important;
+    background: #000 !important;
+}
