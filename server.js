@@ -71,12 +71,22 @@ app.get('/exploits/css/:file', function(req,res){
 
 
 
+app.get('/exploits/dataGather', function(req,res){
+	'use strict';
+
+	let page = "";
+
+	page = "<script type='text/javascript'>document.domain = 'localhost';console.log(window.top)</script>";
+
+	res.send(page);
+});
+
 // Serving a single example page if no specific URL present
 app.use(express.static('./client'));
 
 //Had to use process.env.port for Heroku to run it in whatever port it needs, will default to 21134 if none provided
 app.listen(process.env.PORT || 21134, function () {
     "use strict";
-	
+
 	console.log("Simple HTTP Server running on port" + process.env.PORT || 21134);
 });
