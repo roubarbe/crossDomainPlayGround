@@ -18,8 +18,6 @@ app.get('/exploits/alert/:msg', function(req,res){
 		alertMsg = req.params.msg;
 	}
 	
-    //let page = "<div onload='alert(\""+alertMsg+"\");'>test</div>";
-	
 	let page = "<script type='text/javascript'>alert('"+alertMsg+"')</script>";
 	
 	res.send(page);
