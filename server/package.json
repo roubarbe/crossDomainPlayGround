@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/roubarbe/crossDomainPlayGround/issues"
   },
-  "homepage": "https://github.com/roubarbe/crossDomainPlayGround#readme"
+  "homepage": "https://github.com/roubarbe/crossDomainPlayGround#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
