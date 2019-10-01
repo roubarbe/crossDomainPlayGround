@@ -62,10 +62,10 @@ app.get('/exploits/css/:file', function(req,res){
 	'use strict';
 
 	if(req.params.file == "blackout"){
-		res.sendFile("./client/css/blackout.css");
+		res.sendFile("./css/blackout.css", {root: "./client"});
 	}
 	else{
-		res.sendFile("./client/css/blackout.css");
+		res.sendFile("./css/blackout.css", {root: "./client"});
 	}
 });
 
@@ -77,6 +77,6 @@ app.use(express.static('./client'));
 //Had to use process.env.port for Heroku to run it in whatever port it needs, will default to 21134 if none provided
 app.listen(process.env.PORT || 21134, function () {
     "use strict";
-    
-	console.log("Simple HTTP Server running on port" + process.env.port || 21134);
+	
+	console.log("Simple HTTP Server running on port" + process.env.PORT || 21134);
 });
