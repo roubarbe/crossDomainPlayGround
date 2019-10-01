@@ -19,7 +19,7 @@ let htmlBuildingBlocks = {
 	consoleLog: function(what){
 		return "console.log("+what+");";
 	}
-}
+};
 
 /**
  * This will generate an empty page with a script tag, which contains an alert with the provided message
@@ -111,5 +111,5 @@ app.use(express.static('./client'));
 app.listen(process.env.PORT || 21134, function () {
     "use strict";
 
-	console.log("Simple HTTP Server running on port" + process.env.PORT || 21134);
+	console.log("Simple HTTP Server running on port " + process.env.PORT || 21134);
 });
