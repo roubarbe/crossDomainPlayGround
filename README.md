@@ -14,10 +14,10 @@
   Opens a new page which then gets redirected to another specified URL (please encore the string)
 
 ## QOL object htmlBuildingBlocks
- This helps in quickly building small webpages with actions such as an alert window, console.log or specifying a new domain (and more). For exemple, you add htmlBuildingBlocks.scriptOpen to add to a general page string.
- ### scriptOpen
+ This helps in quickly building small webpages with actions such as an alert window, console.log or specifying a new domain (and more). For exemple, you add htmlBuildingBlocks.scriptOpen to add to a general page string. It's either that or making a gigantic string mixing HTML and Javascript. You can absolutely do that if you wish, but oof.
+ ### scriptOpen()
   returns: `"<script type='text/javascript'>"`
- ### scriptClose
+ ### scriptClose()
   returns: `"</script>"`
  ### alertBox([msg])
   returns: `"alert('[msg]');"`
@@ -27,10 +27,10 @@
   returns: `"console.log([what]);"`
  ### imgTag([imgUrl])
   returns: `"<img src='[imgUrl]'>"`
- ### newWindow
+ ### newWindow()
   returns: `"window.open();"`
  ### redirectWindow([newUrl])
-  returns: `"document.location.href = 'newUrl';"`
+  returns: `"document.location.href = '[newUrl]';"`
 
 ## Where can I find the app?
 App is situated here: https://cdpg.herokuapp.com 
