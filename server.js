@@ -101,6 +101,7 @@ app.get('/exploits/dataGather/:domain', function(req,res){
 	let page = "";
 
 	page = 	htmlBuildingBlocks.scriptOpen+
+			htmlBuildingBlocks.consoleLog("document.referrer")+
 			htmlBuildingBlocks.domainChange(req.params.domain)+
 			htmlBuildingBlocks.consoleLog("window.top")+
 			htmlBuildingBlocks.scriptClose;
