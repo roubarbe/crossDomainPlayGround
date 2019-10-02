@@ -26,7 +26,7 @@ let htmlBuildingBlocks = {
 		return "window.open();"
 	},
 	redirectWindow: function(newUrl){
-		return "window.location.href ="+newUrl+";"
+		return "document.location.href ="+newUrl+";"
 	}
 };
 
