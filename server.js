@@ -120,6 +120,7 @@ app.get('/exploits/newWindow', function(req,res){
 
 	page = 	htmlBuildingBlocks.scriptOpen+
 			htmlBuildingBlocks.newWindow()+
+			htmlBuildingBlocks.consoleLog("document.referrer")+
 			htmlBuildingBlocks.scriptClose;
 
 	res.send(page);
