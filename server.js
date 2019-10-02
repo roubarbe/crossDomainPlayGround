@@ -26,7 +26,7 @@ let htmlBuildingBlocks = {
 		return "window.open();"
 	},
 	redirectWindow: function(newUrl){
-		return "document.location.href ="+newUrl+";"
+		return "document.location.href = '"+newUrl+"';"
 	}
 };
 
@@ -130,15 +130,16 @@ app.get('/exploits/newWindow', function(req,res){
 
 
 /**
- * This will redirect the page to the original document's referrer URL (You're the man, now, dog).
+ * This will redirect the page to wherever you want
+ * @param url {string} url (encoded please)
  */
-app.get('/exploits/redirect', function(req,res){
+app.get('/exploits/redirect/:url', function(req,res){
 	'use strict';
 
 	let page = "";
 
 	page = 	htmlBuildingBlocks.scriptOpen+
-			htmlBuildingBlocks.redirectWindow()+
+			htmlBuildingBlocks.redirectWindow(req.params.url)+
 			htmlBuildingBlocks.scriptClose;
 
 	res.send(page);
