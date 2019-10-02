@@ -12,3 +12,8 @@
 ## QOL objects
  ### htmlBuildingBlocks
   This helps in quickly building small webpages with actions such as an alert window, console.log or specifying a new domain.
+
+## Where can I find the app?
+App is situated here: https://cdpg.herokuapp.com 
+
+# Have fun !
