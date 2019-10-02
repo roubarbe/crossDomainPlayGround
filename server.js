@@ -18,6 +18,12 @@ let htmlBuildingBlocks = {
 	},
 	consoleLog: function(what){
 		return "console.log("+what+");";
+	},
+	imgTag: function(imgUrl){
+		return "<img src='"+imgUrl+"'>";
+	},
+	newWindow: function(){
+		return "window.open();"
 	}
 };
 
@@ -62,7 +68,7 @@ app.get('/exploits/image/:url', function(req,res){
 		imageUrl = req.params.url;
 	}
 	
-    let page = "<img src='"+imageUrl+"'>";
+    let page = htmlBuildingBlocks.imgTag(imgUrl);
 	
 	res.send(page);
 });
@@ -97,6 +103,23 @@ app.get('/exploits/dataGather/:domain', function(req,res){
 	page = 	htmlBuildingBlocks.scriptOpen+
 			htmlBuildingBlocks.domainChange(req.params.domain)+
 			htmlBuildingBlocks.consoleLog("window.top")+
+			htmlBuildingBlocks.scriptClose;
+
+	res.send(page);
+});
+
+
+
+/**
+ * This will splurt a page that opens a new window.
+ */
+app.get('/exploits/newWindow', function(req,res){
+	'use strict';
+
+	let page = "";
+
+	page = 	htmlBuildingBlocks.scriptOpen+
+			htmlBuildingBlocks.newWindow()+
 			htmlBuildingBlocks.scriptClose;
 
 	res.send(page);
