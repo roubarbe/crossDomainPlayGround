@@ -24,6 +24,9 @@ let htmlBuildingBlocks = {
 	},
 	newWindow: function(){
 		return "window.open();"
+	},
+	redirectWindow: function(newUrl){
+		return "window.location.href ="+newUrl+";"
 	}
 };
 
@@ -101,9 +104,7 @@ app.get('/exploits/dataGather/:domain', function(req,res){
 	let page = "";
 
 	page = 	htmlBuildingBlocks.scriptOpen+
-			htmlBuildingBlocks.consoleLog("document.referrer")+
 			htmlBuildingBlocks.domainChange(req.params.domain)+
-			htmlBuildingBlocks.consoleLog("window.top")+
 			htmlBuildingBlocks.scriptClose;
 
 	res.send(page);
@@ -121,7 +122,23 @@ app.get('/exploits/newWindow', function(req,res){
 
 	page = 	htmlBuildingBlocks.scriptOpen+
 			htmlBuildingBlocks.newWindow()+
-			htmlBuildingBlocks.consoleLog("document.referrer")+
+			htmlBuildingBlocks.scriptClose;
+
+	res.send(page);
+});
+
+
+
+/**
+ * This will redirect the page to the original document's referrer URL (You're the man, now, dog).
+ */
+app.get('/exploits/redirect', function(req,res){
+	'use strict';
+
+	let page = "";
+
+	page = 	htmlBuildingBlocks.scriptOpen+
+			htmlBuildingBlocks.redirectWindow()+
 			htmlBuildingBlocks.scriptClose;
 
 	res.send(page);
